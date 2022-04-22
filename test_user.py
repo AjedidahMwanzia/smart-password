@@ -1,5 +1,6 @@
 import unittest 
 from user import User 
+from credentials import Credentials
 
 
 class TestUser(unittest.TestCase):
@@ -57,7 +58,23 @@ class TestUser(unittest.TestCase):
         method that returns a list of all users saved
         """
         self.assertEqual(User.display_users(),User.user_list)
+# .............................credential class.................................................................
 
+
+class TestCredentials(unittest.TestCase):
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        
+        self.new_credentials = Credentials("Facebook","jeddy","12345")
+    def  test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_credentials.account_name,"Facebook")
+        self.assertEqual(self.new_credentials.username,"jeddy")
+        self.assertEqual(self.new_credentials.password,"12345")
 
     
 if __name__ == '__main__':
