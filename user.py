@@ -13,5 +13,5 @@ __init__ method that helps us define properties for our objects.
 '''
 def save_user_details(self):
     User.user_details.append(self) 
-     
+
 
