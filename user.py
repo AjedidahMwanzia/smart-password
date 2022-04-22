@@ -2,16 +2,16 @@ class User:
     """
     Class that generates new instances of user-details
     """
-user_details = []
+    user_list = []
 
-def __init__(self,username,password):
-    
+    def __init__(self, username, password):
+        """
+         method that defines the properties of a user.
+        """
         self.username = username
         self.password = password
-'''
-__init__ method that helps us define properties for our objects.
-'''
-def save_user_details(self):
-    User.user_details.append(self) 
+
+# def save_user(self):
+#     User.user_list.append(self) 
 
 
