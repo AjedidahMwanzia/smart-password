@@ -121,24 +121,37 @@ def smartpassword():
             print("Create new Credentials")
             print ("-"*30)
             print("Account name: ")
-        account_name = input().lower()
-        print("Your username")
-        username= print("")
-        while True:
-            print(" Tp - To type your own pasword if you already have an account:\n Gp - To generate random Password")
-            password_option = input().lower().strip()
-            if password_option == "tp":
-                password = input("Enter your own password\n")
-                break
-            elif password_option == "gp":
-                password = generate_password()
-                break
+            account_name = input().lower()
+            print("Your username")
+            username= print("")
+            while True:
+                print(" Tp - To type your own pasword if you already have an account:\n Gp - To generate random Password")
+                password_option = input().lower().strip()
+                if password_option == "tp":
+                    password = input("Enter your own password\n")
+                    break
+                elif password_option == "gp":
+                   password = generate_password()
+                   break
+                else:
+                   print("invalid password Try again")
+                save_credentials(create_new_credentials(account_name,username,password))
+                print('\n')
+                print(f"Account Credential for: {account_name} - UserName: {username} - Password:{password} created succesfully")
+                print('\n')
+        elif short_code == "dc":
+            if display_credentials():
+                print("Here is your credentials list")
+                print("-"*20)
             else:
-                print("invalid password Try again")
-        save_credentials(create_new_credentials(account_name,username,password))
-        print('\n')
-        print(f"Account Credential for: {account_name} - UserName: {username} - Password:{password} created succesfully")
-        print('\n')
+                print("You have not saved any credentials yet")
+        elif short_code == "fc":
+            print('Enter the account_name you want to look for')
+            account_name = input().lower()
+         
+          
+                
+
 
 
  
