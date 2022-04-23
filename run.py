@@ -109,7 +109,7 @@ def smartpassword():
         print("-"*50)
         print("Enter your username and password to log in: ")
         username= input("username: ")
-        password =input ("password")
+        password =input ("password:")
         login = login_user(username,password)
         if login_user == login:
             print(f"Hello {username}.Welcome To Smart Password")  
@@ -148,6 +148,17 @@ def smartpassword():
         elif short_code == "fc":
             print('Enter the account_name you want to look for')
             account_name = input().lower()
+            if find_credential(account_name):
+                find_credential= find_credential(account_name)
+                print(f"Account Name : {find_credential.account_name}")
+                print("*"*40)
+                print(f"Username: {find_credential.username} Password :{find_credential.password}")
+                print('-' * 50)
+            else:
+                print("That credential does not exist")
+        elif short_code == "dl":
+            print("Enter the account name of the credential you want to delete ")
+            find_credential = find_credential(account_name)
          
           
                 
