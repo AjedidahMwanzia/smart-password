@@ -57,6 +57,17 @@ class Credentials:
        save_credentials method saves credentials objects into credentials_list
        """
        Credentials.credentials_list.append(self)
+    
+    @classmethod
+    def verify_user(cls,username, password):
+        """
+        method to verify whether the user is in our user_list or not
+        """
+        a_user = ""
+        for user in User.user_list:
+            if(user.username == username and user.password == password):
+                    a_user == user.username
+        return a_user
 
     def delete_credentials(self):
         """
