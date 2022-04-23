@@ -31,5 +31,25 @@ class Credentials:
         method that returns the credentials list
         '''
         return cls.credentials_list
-    
+
+
+    @classmethod
+    def find_by_account_name(cls,account_name):
+        """
+        Method that takes in a account_name and returns credentials that matches that account_name.
+        """
+        for credentials in cls.credentials_list:
+            if credentials.account_name == account_name:
+                return credentials
+
+
+    # @classmethod
+    # def credentials_exists(cls,account_name):
+    #     """
+    #     Method that checks if a credentials exists from the credentials list.
+    #     """
+    #     for credentials in cls.credentials_list:
+    #         if credentials.account_name == account_name:
+    #             return True
+    #         return False
 
