@@ -1,7 +1,8 @@
-from imp import C_EXTENSION
 import unittest 
 from user import User 
 from credentials import Credentials
+
+
 
 
 class TestUser(unittest.TestCase):
@@ -118,6 +119,10 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
     
     def test_find_credentials_by_account_name(self):
+
+        '''
+        test to check if we can return a Boolean  if we cannot find the credentialsusing account name.
+        '''
         self.new_credentials.save_credentials()
         test_Credentials = Credentials("linkedin","AjedidahMwanzia","5811")
         test_Credentials.save_credentials()
@@ -125,17 +130,19 @@ class TestCredentials(unittest.TestCase):
         found_credentials = Credentials.find_by_account_name("linkedin")
 
         self.assertEqual(found_credentials.account_name,test_Credentials.account_name)
-    # def test_credentials_exists(self):
-    #     '''
-    #     test to check if we can return a Boolean  if we cannot find the credentials.
-    #     '''
-    #     self.new_credentials.save_credentials()
-    #     test_Credentials = Credentials("linkedin","AjedidahMwanzia","5811")
-    #     test_Credentials.save_credentials()
 
-    #     credentials_exists = Credentials.credentials_exists("linkedin")
+    
+    def test_display_all_credentials(self):
+        '''
+        method that displays all the credentials that has been saved by the user
+        '''
 
-    #     self.assertTrue(credentials_exists)
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+
+
+    
+
+  
     
 if __name__ == '__main__':
     unittest.main()

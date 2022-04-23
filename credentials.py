@@ -1,4 +1,7 @@
 
+import pyperclip
+
+
 class Credentials:
     """
     Create credentials class to help create new objects of credentials
@@ -42,14 +45,13 @@ class Credentials:
             if credentials.account_name == account_name:
                 return credentials
 
+    @classmethod
+    def display_credentials(cls):
+        """
+        Method that returns all items in the credentials list
+        """
+        return cls.credentials_list
 
-    # @classmethod
-    # def credentials_exists(cls,account_name):
-    #     """
-    #     Method that checks if a credentials exists from the credentials list.
-    #     """
-    #     for credentials in cls.credentials_list:
-    #         if credentials.account_name == account_name:
-    #             return True
-    #         return False
 
+
+  
