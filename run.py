@@ -159,6 +159,24 @@ def smartpassword():
         elif short_code == "dl":
             print("Enter the account name of the credential you want to delete ")
             find_credential = find_credential(account_name)
+            if find_credential(account_name):
+                find_credential = find_credential(account_name)
+                print("-"* 20)
+                find_credential.delete_credentials()
+                print("\n")
+                print(f"Your credentials of : {find_credential.account_name} have been successfully deleted")
+            else:
+                print('The credential does not exist')
+        elif short_code == "Gp":
+            password = generate_password()
+            print(f" {password} Has been generated succesfull. You can proceed to use it to your account")
+        elif short_code == 'ex':
+            print("Thanks for using passwords store manager.. See you next time!")
+            break
+        else:
+            print("Wrong entry... Check your entry again and let it match those in the menu")
+    else:
+        print("Please enter a valid input to continue")
          
           
                 
