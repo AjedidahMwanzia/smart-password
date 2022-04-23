@@ -110,6 +110,12 @@ class TestCredentials(unittest.TestCase):
         test_credentials= Credentials("instagram","@ajedidah_","31526673")
         test_credentials.save_credentials()
         self.new_credentials.delete_credentials()
+
+    def test_display_credentials(self):
+        """
+        method that returns a list of all users saved
+        """
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
     
 if __name__ == '__main__':
     unittest.main()
