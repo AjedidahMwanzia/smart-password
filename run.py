@@ -4,6 +4,7 @@ from user import User
 from user import Credentials
 
 
+
 def create_user(username,password):
     '''
     Function to create a new user
@@ -147,26 +148,29 @@ def smartpassword():
                 print("You have not saved any credentials yet")
         elif short_code == "fc":
             print('Enter the account_name you want to look for')
-            account_name = input().lower()
-            if find_credential(account_name):
-                find_credential= find_credential(account_name)
-                print(f"Account Name : {find_credential.account_name}")
-                print("*"*40)
-                print(f"Username: {find_credential.username} Password :{find_credential.password}")
+            search_name = input().lower()
+            if find_credentials(search_name):
+                search_credential = find_credential(search_name)
+                print(f"Account Name : {search_credential.account_name}")
+                print('-' * 50)
+                print(f"User Name: {search_credential.username} Password :{search_credential.password}")
                 print('-' * 50)
             else:
-                print("That credential does not exist")
-        elif short_code == "dl":
-            print("Enter the account name of the credential you want to delete ")
-            find_credential = find_credential(account_name)
-            if find_credential(account_name):
-                find_credential = find_credential(account_name)
-                print("-"* 20)
-                find_credential.delete_credentials()
-                print("\n")
-                print(f"Your credentials of : {find_credential.account_name} have been successfully deleted")
+                print("That Credential does not exist")
+                print('\n')
+        elif short_code == "d":
+            print("Enter the account name of the Credentials you want to delete")
+            search_name = input().lower()
+            if find_credential(search_name):
+                search_credential = find_credential(search_name)
+                print("_"*50)
+                search_credential.delete_credentials()
+                print('\n')
+                print(f"Your stored credentials for : {search_credential.account_name} successfully deleted!!!")
+                print('\n')
             else:
-                print('The credential does not exist')
+                print("That Credential you want to delete does not exist in your store yet")
+
         elif short_code == "Gp":
             password = generate_password()
             print(f" {password} Has been generated succesfull. You can proceed to use it to your account")
