@@ -150,16 +150,16 @@ def main():
 								break
 							else:
 								print('You have entered the wrong option. Try again.')
-						save_credentials(create_credential(account_name,username,password))
+						save_credentials(create_new_credentials(account_name,username,password))
 						print(' ')
 						print(f'Credentials Created: Account Name: {account_name} , Username {username}, Password: {password}')
 						print(' ')
 					elif short_code == 'dc':
 						print(' ')
-						if display_credentials(username):
+						if display_credentials():
 							print('Here is a list of all your credentials')
 							print(' ')
-							for credential in display_credentials(username):
+							for credential in display_credentials():
 								print(f' Account Name: {credential.account_name}, Username {credential.username} , Password: {credential.password}')
 							print(' ')	
 						else:
