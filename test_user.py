@@ -1,3 +1,4 @@
+
 import unittest 
 from user import User, Credentials 
 
@@ -40,6 +41,20 @@ class TestUser(unittest.TestCase):
         test_user=User("Test","1234")
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
+
+    def test_verify_user(self):
+        self.new_user=User('Tinah','pswd100')
+        self.new_user.save_user()
+        user2 =new_user=User('Aggy','pswd100')
+        user2.save_user()
+
+        for user in User.user_list:
+            if user.username == user2.username and user.password == user2.password:
+                current_user = user.username
+                return current_user
+        self.assertEqual(current_user,Credentials.verify_user(user2.password,user2.username))
+
+        
    
     def test_delete_user(self):
 
@@ -115,30 +130,27 @@ class TestCredentials(unittest.TestCase):
         """
         self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
     
-    def test_find_credential(self):
+    def test_find_credentials(self):
 
         '''
         test to check if we can return a Boolean  if we cannot find the credentialsusing account name.
         '''
         self.new_credentials.save_credentials()
-        test_credential = Credentials("telegram", "jeddy", "1245")  
-        test_credential.save_credentials()
+        test_credentials = Credentials("telegram", "jeddy", "1245")  
+        test_credentials.save_credentials()
 
-        the_credential = Credentials.find_credential("telegram")
+        found_credentials = Credentials.find_credentials("telegram")
 
-        self.assertEqual(the_credential.account_name,test_credential.account_name)
+        self.assertEqual(found_credentials.account_name,test_credentials.account_name)
 
-
-    def test_credential_exist(self):
-        """
-        test to check if we can return a true or false based on whether we find or can't find the credential.
-        """
+    def test_credentials_exists(self):
         self.new_credentials.save_credentials()
-        the_credential = Credentials("telegram", "jeddy", "1245")  
-        the_credential.save_credentials()
-        credential_is_found = Credentials.if_credential_exist("telegram")
-        self.assertTrue(credential_is_found)
+        test_credentials = Credentials("telegram", "jeddy", "1245")  
+        test_credentials.save_credentials()
 
+        credentials_exists = Credentials.credentials_exists("telegram")
+
+        self.assertTrue(credentials_exists)
 
 
     def test_display_all_credentials(self):

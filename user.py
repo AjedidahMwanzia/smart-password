@@ -63,11 +63,11 @@ class Credentials:
         """
         method to verify whether the user is in our user_list or not
         """
-        a_user = ""
+        current_user = ""
         for user in User.user_list:
             if(user.username == username and user.password == password):
-                    a_user == user.username
-        return a_user
+                    current_user = user.username
+        return current_user
 
     def delete_credentials(self):
         """
@@ -84,22 +84,22 @@ class Credentials:
 
 
     @classmethod
-    def find_credential(cls, account_name):
+    def find_credentials(cls, account_name):
         """
         Method that takes in a account_name and returns a credential that matches that account_name.
         """
-        for credential in cls.credentials_list:
-            if credential.account_name == account_name:
-                return credential
+        for credentials in cls.credentials_list:
+            if credentials.account_name == account_name:
+                return credentials
 
     
     @classmethod
-    def if_credential_exist(cls, account_name):
+    def credentials_exists(cls, account_name):
         """
         Method that checks if a credential exists from the credential list and returns true or false depending if the credential exists.
         """
-        for credential in cls.credentials_list:
-            if credential.account_name == account_name:
+        for credentials in cls.credentials_list:
+            if credentials.account_name == account_name:
                 return True
         return False
 
