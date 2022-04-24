@@ -117,8 +117,8 @@ class Credentials:
         return ''.join(random.choice(password) for i in range(stringLength))
 
     @classmethod
-    def copy_password(cls,account):
-        found_credentials = Credentials.find_credential(account)
+    def copy_password(cls,account_name):
+        found_credentials = Credentials.find_credentials(account_name)
         pyperclip.copy(found_credentials.password)
 
     

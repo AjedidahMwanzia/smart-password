@@ -44,12 +44,12 @@ def generate_password():
     gen_password = Credentials.generatePassword()
     return gen_password
 
-def copy_password(account):
+def copy_password(account_name):
     """
-    A funct that copies the password using the pyperclip framework
+    A function that copies the password using the pyperclip framework
     We import the framework then declare a function that copies the emails.
     """
-    return Credentials.copy_password(account)
+    return Credentials.copy_password(account_name)
 
 
 # .................................Credentials......................................
@@ -168,8 +168,8 @@ def main():
 							print(' ')
 					elif short_code == 'copy':
 						print(' ')
-						chosen_site = input('Enter the site name for the credential password to copy: ')
-						copy_credential(chosen_site)
+						chosen_site = input('Enter the account name for the credential password to copy: ')
+						copy_password(chosen_site)
 						print('')
 					else:
 						print('Oops! Wrong option entered. Try again.')
